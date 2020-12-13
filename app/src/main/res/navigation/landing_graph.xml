@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/landing_graph"
+    app:startDestination="@id/nav_fragment_search">
+    <fragment
+        android:id="@+id/nav_fragment_chat"
+        android:name="com.chemisstry.chemisstry.fragment.main.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_search"
+        android:name="com.chemisstry.chemisstry.fragment.main.SearchFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_search">
+
+    </fragment>
+    <fragment
+        android:id="@+id/nav_fragment_home"
+        android:name="com.chemisstry.chemisstry.fragment.main.SettingsFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/settings_to_general_account"
+            app:destination="@id/nav_fragment_general_account" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_general_account"
+        android:name="com.chemisstry.chemisstry.fragment.main.GeneralAccountFragment"
+        android:label="Nav Fragment General Account"
+        tools:layout="@layout/fragment_general_account">
+        <argument
+            android:name="mail"
+            android:defaultValue="Default"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+</navigation>

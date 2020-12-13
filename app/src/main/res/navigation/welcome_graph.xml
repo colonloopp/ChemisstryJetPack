@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_fragment_welcome">
+
+    <fragment
+        android:id="@+id/nav_fragment_welcome"
+        android:name="com.chemisstry.chemisstry.fragment.welcome.WelcomeFragment"
+        android:label="Nav Fragment One"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/welcome_to_login"
+            app:destination="@id/nav_fragment_login" />
+
+        <action
+            android:id="@+id/welcome_to_authenticity"
+            app:destination="@id/nav_fragment_login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_login"
+        android:name="com.chemisstry.chemisstry.fragment.welcome.LoginFragment"
+        android:label="Nav Fragment Two"
+        tools:layout="@layout/fragment_login">
+        <argument
+            android:name="name"
+            android:defaultValue="Default"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <deepLink app:uri="http://mysitesampleapp.com/{name}/{id}" />
+        <action
+            android:id="@+id/action_nav_fragment_login_to_nav_fragment_forget_password"
+            app:destination="@id/nav_fragment_forget_password" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_forget_password"
+        android:name="com.chemisstry.chemisstry.fragment.welcome.ForgetPasswordFragment"
+        android:label="Nav Fragment Forget Password"
+        tools:layout="@layout/fragment_forget_password">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_authenticity"
+        android:name="com.chemisstry.chemisstry.fragment.welcome.AutheticityFragment"
+        android:label="Nav Fragment Authenticity"
+        tools:layout="@layout/fragment_authenticity">>
+        <action
+            android:id="@+id/authenticity_to_user_email"
+            app:destination="@id/nav_fragment_user_email" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_fragment_user_email"
+        android:name="com.chemisstry.chemisstry.fragment.welcome.UserEmailFragment"
+        android:label="Nav Fragment User Email"
+        tools:layout="@layout/fragment_user_email">
+
+        <action
+            android:id="@+id/user_email_to_university"
+            app:destination="@id/nav_fragment_university" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_fragment_university"
+        android:name="com.chemisstry.chemisstry.fragment.welcome.UniversityFragment"
+        android:label="Nav Fragment University"
+        tools:layout="@layout/fragment_university">
+        <argument
+            android:name="mail"
+            android:defaultValue="Default"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/university_to_user_detail"
+            app:destination="@id/nav_fragment_user_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_user_detail"
+        android:name="com.chemisstry.chemisstry.fragment.welcome.UserDetailFragment"
+        android:label="Nav User Detail"
+        tools:layout="@layout/fragment_user_detail">
+        <argument
+            android:name="mail"
+            android:defaultValue="Default"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="university"
+            android:defaultValue="Default"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>
