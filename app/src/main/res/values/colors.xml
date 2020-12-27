@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#050926</color>
+    <color name="colorPrimaryDark">#050926</color>
+    <color name="colorPrimaryAlternative">#162468</color>
+    <color name="colorPrimaryGreen">#4AA59D</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="colorAuthenticValidUniversityEmail">#F2CC55</color>
+    <color name="colorAuthenticRequired">#E84B56</color>
+    <color name="colorUniversityLogoHue">#F0CFA4</color>
+    <color name="colorCityLogoHue">#61D836</color>
+    <color name="colorConnectPink">#E94B7E</color>
+    <color name="colorTextFieldPrimary">#0D174B</color>
+    <color name="colorSettingsSecondary">#2D0B2D</color>
+    <color name="white">#FFFFFF</color>
+    <color name="chemNavBlue">#140149</color>
+    <color name="chemDarkBlue">#050924</color>
+    <color name="chemMainPink">#E94B7E</color>
+    <color name="chemBrightPurple">#CB87F8</color>
+    <color name="chemTealGreen">#00A89D</color>
+    <color name="indicatorRedActive">#FCACB3</color>
+    <color name="indicatorBlueActive">#491A88</color>
+    <color name="indicatorGreenActive">#2D4980</color>
+
 </resources>
