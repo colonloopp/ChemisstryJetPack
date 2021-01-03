@@ -14,8 +14,11 @@ class ChatFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_chat, container, false)
+    ): View? =
+        inflater.inflate(R.layout.fragment_chat, container, false)
+
+    companion object {
+        fun newInstance(): ChatFragment = ChatFragment()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

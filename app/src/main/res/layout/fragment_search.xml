@@ -1,86 +1,410 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_search"
-    android:orientation="vertical"
-    android:weightSum="100">
+    android:background="@drawable/background_search">
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/state_three"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:weightSum="100">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#660D174B"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/chemMainPink"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/square_refresh_teal_green"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="0dp"
+                        android:text="  Refresh  "
+                        android:textColor="@color/white"
+                        android:textSize="8dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Indicates users waiting ahead of you for a connection. Calculated based on your current location, gender and looking for preferences."
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Entered queue at 24 Dec 2020 01:05"
+                        android:textColor="@color/white"
+                        android:textSize="8dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#660D174B"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_weight="55"
+            android:gravity="center">
+
+
+            <RelativeLayout
+                android:id="@+id/waiting_circle_layout"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_queue_red_border_only"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:id="@+id/circle_waiting_wordings_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/waiting_indicator_layout"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_added"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Added"
+                        android:textColor="@color/chemBrightPurple"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_in_queue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_added"
+                        android:gravity="center"
+                        android:text="In Queue"
+                        android:textColor="@color/indicatorRedActive"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/waiting_indicator_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="42dp"
+                    android:gravity="center"
+                    android:weightSum="9">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/circle_indicator_red_filled" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/circle_indicator_yellow_filled" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/circle_indicator_green_filled" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="35">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textColor="@color/chemMainPink"
-                    android:textSize="16dp"
+                    android:gravity="center"
+                    android:text="Predicted Wait Time"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/predicted_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="20 Minutes"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAuthenticValidUniversityEmail"
+                    android:textSize="16dp"
+                    android:textStyle="bold|italic" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/square_refresh_teal_green"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/square_more_info_pink"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
-                    android:padding="0dp"
-                    android:text="  Refresh  "
+                    android:text="More Info"
                     android:textColor="@color/white"
-                    android:textSize="8dp" />
+                    android:textSize="10dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:orientation="vertical">
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="54dp"
+                android:orientation="horizontal">
 
-                <TextView
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/home" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Indicates users waiting ahead of you for a connection. Calculated based on your current location, gender and looking for preferences."
-                    android:textColor="@color/white"
-                    android:textSize="10dp" />
+                    android:layout_marginBottom="16dp"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Entered queue at 24 Dec 2020 01:05"
-                    android:textColor="@color/white"
-                    android:textSize="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NOTE"
+                        android:textColor="@color/chemMainPink"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="You'll be notified once you connect with a user. Make sure you turn on NOTIFICATION"
+                        android:textColor="@color/indicatorRedActive"
+                        android:textSize="12dp" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/state_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/university_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/university_image"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:shadowColor="#F7D1C5"
+            android:shadowRadius="15"
+            android:text="University Of Chennai"
+            android:textColor="#F7D1C5"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:id="@+id/university_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/uni" />
+
+
+        <Button
+            android:id="@+id/women_button"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:layout_toLeftOf="@+id/university_image"
+            android:background="@drawable/circle_count_yellow"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:shadowColor="#FF6242"
+            android:shadowDy="5"
+            android:shadowRadius="10"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:cornerRadius="45dp" />
+
+
+        <TextView
+            android:id="@+id/women_title"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/women_button"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="32dp"
+            android:layout_toLeftOf="@+id/university_image"
+            android:gravity="center"
+            android:shadowColor="#fff"
+            android:shadowRadius="8"
+            android:text="Women"
+            android:textColor="#E6FFFFFF"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/men_button"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@+id/university_image"
+            android:background="@drawable/circle_count_yellow"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:shadowColor="#FF6242"
+            android:shadowDy="5"
+            android:shadowRadius="10"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:id="@+id/mem_title"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/men_button"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="12dp"
+            android:layout_toRightOf="@+id/university_image"
+            android:gravity="center"
+            android:shadowColor="#fff"
+            android:shadowRadius="8"
+            android:text="Men"
+            android:textColor="#E6FFFFFF"
+            android:textSize="10dp" />
+
+
+        <Button
+            android:id="@+id/total_button"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_below="@+id/university_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/circle_count_yellow"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:shadowColor="#FF6242"
+            android:shadowDy="5"
+            android:shadowRadius="10"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:id="@+id/total_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/total_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:shadowColor="#fff"
+            android:shadowRadius="8"
+            android:text="Total Enrolled"
+            android:textColor="#E6FFFFFF"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/connect_button"
+            android:layout_width="110dp"
+            android:layout_height="46dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="74dp"
+            android:gravity="center"
+            android:text="Connect"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="15dp" />
 
     </RelativeLayout>
 
-
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/state_two"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="55"
-        android:gravity="center">
-
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+       >
 
         <RelativeLayout
-            android:id="@+id/waiting_circle_layout"
+            android:id="@+id/finding_circle_layout"
             android:layout_width="230dp"
             android:layout_height="230dp"
             android:layout_gravity="center"
@@ -88,16 +412,16 @@
             android:gravity="center">
 
             <RelativeLayout
-                android:id="@+id/circle_waiting_wordings_layout"
+                android:id="@+id/finding_wordings_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/waiting_indicator_layout"
+                android:layout_above="@+id/finding_indicator_layout"
                 android:layout_marginTop="22dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/text_added"
+                    android:id="@+id/state_two_finding_heading"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -107,10 +431,10 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/text_in_queue"
+                    android:id="@+id/state_two_finding_sub_heading"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_added"
+                    android:layout_below="@+id/state_two_finding_heading"
                     android:gravity="center"
                     android:text="In Queue"
                     android:textColor="@color/indicatorRedActive"
@@ -119,7 +443,7 @@
             </RelativeLayout>
 
             <LinearLayout
-                android:id="@+id/waiting_indicator_layout"
+                android:id="@+id/finding_indicator_layout"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:layout_alignParentBottom="true"
@@ -128,6 +452,7 @@
                 android:weightSum="9">
 
                 <RelativeLayout
+                    android:id="@+id/state_two_red_indicator"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -135,6 +460,7 @@
                     android:background="@drawable/circle_indicator_red_filled" />
 
                 <RelativeLayout
+                    android:id="@+id/state_two_yellow_indicator"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -142,100 +468,28 @@
                     android:background="@drawable/circle_indicator_yellow_filled" />
 
                 <RelativeLayout
+                    android:id="@+id/state_two_green_indicator"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_weight="2"
                     android:background="@drawable/circle_indicator_green_filled" />
             </LinearLayout>
-        </RelativeLayout>
-
-
-    </LinearLayout>
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="35">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Predicted Wait Time"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="12dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="20 Minutes"
-                android:textAlignment="center"
-                android:textColor="@color/colorAuthenticValidUniversityEmail"
-                android:textSize="16dp"
-                android:textStyle="bold|italic" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/square_more_info_pink"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:text="More Info"
-                android:textColor="@color/white"
-                android:textSize="10dp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="54dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:src="@drawable/home" />
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="NOTE"
-                    android:textColor="@color/chemMainPink"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="You'll be notified once you connect with a user. Make sure you turn on NOTIFICATION"
-                    android:textColor="@color/indicatorRedActive"
-                    android:textSize="12dp" />
+                <com.chemisstry.chemisstry.util.Circle
+                    android:id="@+id/progress_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:foregroundGravity="center"
+                    android:padding="0dp" />
             </LinearLayout>
-        </LinearLayout>
-
+        </RelativeLayout>
     </RelativeLayout>
 
-
-</LinearLayout>
+</RelativeLayout>
