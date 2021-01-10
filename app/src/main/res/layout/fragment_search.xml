@@ -6,7 +6,7 @@
     android:background="@drawable/background_search">
 
     <LinearLayout
-        android:id="@+id/state_three"
+        android:id="@+id/state_four"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -200,6 +200,7 @@
                     android:background="@drawable/square_more_info_pink"
                     android:minWidth="0dp"
                     android:minHeight="0dp"
+                    android:id="@+id/predicted_time_info"
                     android:text="More Info"
                     android:textColor="@color/white"
                     android:textSize="10dp"
@@ -400,8 +401,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:visibility="gone"
-       >
+        android:visibility="gone">
 
         <RelativeLayout
             android:id="@+id/finding_circle_layout"
@@ -475,6 +475,7 @@
                     android:layout_weight="2"
                     android:background="@drawable/circle_indicator_green_filled" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -485,11 +486,159 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
                     android:foregroundGravity="center"
                     android:padding="0dp" />
             </LinearLayout>
         </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/state_three"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/state_three_circle"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_queue_red_border_only"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:id="@+id/state_three_wordings"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/state_three_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="All Womens"
+                    android:textColor="@color/chemBrightPurple"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/state_three_sub_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/state_three_heading"
+                    android:gravity="center"
+                    android:text="In Queue"
+                    android:textColor="@color/indicatorRedActive"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/state_three_indicators"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="42dp"
+                android:gravity="center"
+                android:weightSum="9">
+
+                <RelativeLayout
+                    android:id="@+id/state_three_red_indicator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/circle_indicator_red_filled" />
+
+                <RelativeLayout
+                    android:id="@+id/state_three_yellow_indicator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/circle_indicator_yellow_filled" />
+
+                <RelativeLayout
+                    android:id="@+id/state_three_green_indicator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/circle_indicator_green_filled" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/busy_bottom_layout"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="NOTE"
+            android:textColor="@color/chemMainPink"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/busy_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/gradient_pink_blue"
+            android:orientation="vertical"
+            android:layout_marginBottom="32dp"
+            android:padding="32dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/at_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/chat" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/busy_notification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="24dp"
+                        android:text="You'll auto connect with the next partner who presses the connect button and you'll receive a "
+                        android:textColor="#FFABB5"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="24dp"
+                        android:shadowColor="#FAD235"
+                        android:shadowRadius="10"
+                        android:text="NOTIFICATION"
+                        android:textColor="#FAD235"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
     </RelativeLayout>
 
 </RelativeLayout>

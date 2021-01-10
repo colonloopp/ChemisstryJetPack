@@ -36,14 +36,18 @@ class SearchFragment : Fragment() {
         (activity as LandingActivity?)!!.setFragmentRefreshListener(object :
             LandingActivity.FragmentRefreshListener {
             override fun onRefresh(data: String) {
-                state_three.visibility = View.VISIBLE
-                animateState3()
+                state_four.visibility = View.VISIBLE
+                animateState4()
             }
         })
         prepareProgressAnimation()
         connect_button.setOnClickListener {
             preAnimateState1()
             animateState1()
+        }
+        predicted_time_info.setOnClickListener {
+            hideState4()
+            animateState3()
         }
     }
 
@@ -125,7 +129,7 @@ class SearchFragment : Fragment() {
         }, 400)
     }
 
-    fun animateState3() {
+    fun animateState4() {
         hideState2()
         // Load the animation
         val myAnim: Animation = AnimationUtils.loadAnimation(activity, R.anim.bounce)
@@ -148,6 +152,58 @@ class SearchFragment : Fragment() {
         })
     }
 
+    fun animateState3() {
+        hideState2()
+        // Load the animation
+        val myAnim: Animation = AnimationUtils.loadAnimation(activity, R.anim.bounce)
+        val animationDuration: Double = 1.5 * 1000
+        myAnim.duration = animationDuration.toLong()
+
+        // Use custom animation interpolator to achieve the bounce effect
+        val interpolator = MyBounceInterpolator(0.2, 8.0)
+        myAnim.interpolator = interpolator
+        preAnimateState3()
+        // Animate the button
+        state_three_circle.startAnimation(myAnim)
+
+        myAnim.setAnimationListener(object : AnimationListener {
+            override fun onAnimationStart(arg0: Animation) {}
+            override fun onAnimationRepeat(arg0: Animation) {}
+            override fun onAnimationEnd(arg0: Animation) {
+
+                state3IndicatorsVisibility()
+            }
+        })
+    }
+
+    fun state3IndicatorsVisibility() {
+        Handler().postDelayed({
+            state_three_red_indicator.visibility = View.VISIBLE
+            Handler().postDelayed({
+                state_three_yellow_indicator.visibility = View.VISIBLE
+                Handler().postDelayed({
+                    state_three_green_indicator.visibility = View.VISIBLE
+                    Handler().postDelayed({
+                        state_three_heading.visibility = View.VISIBLE
+                        Handler().postDelayed({
+                            state_three_sub_heading.visibility = View.VISIBLE
+                        }, 400)
+                    }, 400)
+                }, 400)
+            }, 400)
+        }, 400)
+    }
+
+
+    fun preAnimateState3() {
+        state_three.visibility = View.VISIBLE
+        state_three_heading.visibility = View.INVISIBLE
+        state_three_sub_heading.visibility = View.INVISIBLE
+        state_three_red_indicator.visibility = View.INVISIBLE
+        state_three_yellow_indicator.visibility = View.INVISIBLE
+        state_three_green_indicator.visibility = View.INVISIBLE
+    }
+
     fun preAnimateState1() {
         university_name.visibility = View.INVISIBLE
         university_image.visibility = View.INVISIBLE
@@ -157,6 +213,13 @@ class SearchFragment : Fragment() {
         connect_button.visibility = View.INVISIBLE
     }
 
+    fun hideState4() {
+        state_four.visibility = View.GONE
+    }
+
+    fun hideState3() {
+        state_three.visibility = View.GONE
+    }
 
     fun hideState2() {
         state_two.visibility = View.GONE
